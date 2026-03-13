@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e1e1e;
+  --color-secondary: #606060;
+  --color-main-body: #ffffff;
+  --color-active: #f77429;
+  --color-light: #ffffff;
+  --color-main-br: #a1a1a1;
+  --color-hr-br: #dddddd;
+
+  --size-grid-col-sm: 180px;
+  --size-grid-col-md: 250px;
+  --size-grid-col-lg: 320px;
+}
+
+.dark {
+  --color-primary: #ffffff;
+  --color-secondary: #606060;
+  --color-main-body: #ffffff;
+  --color-active: #f77429;
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    @apply duration-300;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    @apply text-primary;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .layout-container {
+    @apply container px-3.75 mx-auto;
+  }
+  /* flex */
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .link {
+    @apply text-secondary;
+    &.active,
+    &:hover {
+      @apply text-active;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  .link--nav {
+    @apply relative;
+    &::after {
+      content: "";
+      width: 0;
+      height: 1px;
+      background-color: var(--color-active);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  .link--aside {
+    @apply relative;
+    &::before {
+      content: "";
+      width: 1px;
+      height: 0;
+      background-color: var(--color-active);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &:hover,
+    &.active {
+      @apply text-active;
+      &::before {
+        height: 100%;
+      }
+    }
+  }
+  .card {
+    &:hover {
+      box-shadow: 0px 4.74px 11.37px 0px #0000001a,
+        0px 19.89px 19.89px 0px #00000017, 0px 45.46px 27.47px 0px #0000000d,
+        0px 80.5px 32.2px 0px #00000003;
+    }
+  }
+}
+
+@layer utilities {
+  /* custom grid  */
+  /* AUTO-FILL */
+  .grid-auto-fill-sm {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--size-grid-col-sm), 1fr)
+    );
+  }
+  .grid-auto-fill-md {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--size-grid-col-md), 1fr)
+    );
+  }
+  .grid-auto-fill-lg {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(var(--size-grid-col-lg), 1fr)
+    );
+  }
+
+  /* AUTO-FIT */
+  .grid-auto-fit-sm {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--size-grid-col-sm), 1fr)
+    );
+  }
+  .grid-auto-fit-md {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--size-grid-col-md), 1fr)
+    );
+  }
+  .grid-auto-fit-lg {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--size-grid-col-lg), 1fr)
+    );
+  }
+  .scrollbar-hide {
+    scrollbar-width: none;
+  }
+}
