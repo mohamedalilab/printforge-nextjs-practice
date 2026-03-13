@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { isActivePath } from "@/_utils/isActivePath";
+import { isActivePath } from "@/utils/isActivePath";
 
 interface AsideLinkProps {
   path: string;

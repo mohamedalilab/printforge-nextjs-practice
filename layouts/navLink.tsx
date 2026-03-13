@@ -2,7 +2,7 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import { isActivePath } from "../_utils/isActivePath";
+import { isActivePath } from "../utils/isActivePath";
 import Link from "next/link";
 import clsx from "clsx";
 
